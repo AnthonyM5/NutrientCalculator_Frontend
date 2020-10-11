@@ -14,8 +14,9 @@ class Food {
     const ol = document.createElement("ol")
     const li = document.createElement("li")
     li.innerText = `${this.name}` 
+    li.setAttribute('href', '#')
     li.dataset.id = this.id
-    li.addEventListener("click", () => new FoodPages(this.food.id))
+    li.addEventListener("click", () => new FoodPages(this.id))
     const body = document.querySelector('body')
     ol.appendChild(li)
     body.append(li)

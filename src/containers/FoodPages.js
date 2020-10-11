@@ -5,10 +5,12 @@ class FoodPages {
 
     buildPage(food){
         this.food = food
-        renderFood()
+        this.renderFood()
+        console.log('Part1')
     }
 
     renderFood(){
+        console.log('Part2')
         const { id, name, nutrient_hash } = this.food
         const body = document.body
         body.innerHTML = ""
@@ -18,5 +20,6 @@ class FoodPages {
         const nutrientInfo = document.createElement('p')
         nutrientInfo.innerText = JSON.stringify(nutrient_hash)
         body.append(nutrientInfo)
+        body.append(header)
     }
 }
