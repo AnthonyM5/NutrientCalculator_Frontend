@@ -2,13 +2,15 @@ class NutrientValues{
     constructor(nutrient){
         this.name = nutrient.nutrientName
         this.value = nutrient.value
-        this.render.bind(this)
+        this.renderNutrient()
+        console.log(name)
     }
 
-    render(){
-        const foodBody = document.body
+    renderNutrient(){
+        const card = document.createElement("div")
         const nutrientP = document.createElement("p")
         nutrientP.innerText = `${this.name} : ${this.value}`
-        foodBody.append(nutrientP)
+        card.append(nutrientP)
+        document.body.append(card)
     }
 }
