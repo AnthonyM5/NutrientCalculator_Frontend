@@ -6,20 +6,25 @@ class FoodPages {
     buildPage(food){
         this.food = food
         this.renderFood()
-        console.log('Part1')
+        this.name = food.name
     }
 
     renderFood(){
-        console.log('Part2')
         const { id, name, nutrient_hash } = this.food
+        console.log(nutrient_hash[0].nutrientName)
         const body = document.body
         body.innerHTML = ""
         const header = document.createElement('h1')
         header.setAttribute('class', 'text-center')
-        header.innerText = this.name
-        const nutrientInfo = document.createElement('p')
-        nutrientInfo.innerText = JSON.stringify(nutrient_hash)
-        body.append(nutrientInfo)
+        header.innerText = name
+        const nutrientInfo = document.createElement('div')
+        nutrient_hash.forEach(nutrient =>  new NutrientValues(nutrient))
         body.append(header)
+        const button = document.createElement('button')
+        button.setAttribute('onclick', "window.print()")
+        body.append(nutrientInfo)
+        
     }
+
+
 }
