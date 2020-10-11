@@ -20,7 +20,7 @@ class Food {
     const body = document.querySelector('body')
     ol.appendChild(li)
     body.append(li)
-    console.log(typeof this.nutrient_hash)
+    // console.log(this.name)
     }
 
     renderFoodPage = (food) => {

@@ -22,6 +22,8 @@ class FoodPages {
         nutrient_hash.forEach(nutrient =>  new NutrientValues(nutrient))
         const button = document.createElement('button')
         button.setAttribute('onclick', "window.print()")
+        const portions = new ApiService('https://api.nal.usda.gov/fdc/v1/foods?fdcIds=') 
+        portions.fetchPortions(173190)
         body.append
         body.append(nutrientInfo)
         
