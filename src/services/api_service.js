@@ -10,6 +10,11 @@ class ApiService {
     .then(res => res.json())
     .then(this.renderFoods)
 
+    fetchFood = (id) => 
+    fetch(this.root+'/foods/'+id)
+    .then(res => res.json())
+     
+
     renderFoods(foods){
         foods.forEach(food => new Food(food))
     }

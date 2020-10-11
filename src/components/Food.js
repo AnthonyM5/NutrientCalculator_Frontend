@@ -1,15 +1,28 @@
 class Food {
     constructor(food){
         this.name = food.name
-        this.nutrient_hash = JSON.stringify(food.nutrient_hash)
-        this.render()
+        this.nutrient_hash = food.nutrient_hash
+        this.id = food.id
+        this.card = this.render()
     }
 
+    // addEventListeners(){
+    //     this.addEventListeners("onclick", () => new FoodPages(this.food.id))
+    // }
+
     render(){
-    console.log(`${this.nutrient_hash}`)
+    const ol = document.createElement("ol")
     const li = document.createElement("li")
-    li.innerText = this.name
+    li.innerText = `${this.name}` 
+    li.dataset.id = this.id
+    li.addEventListener("onclick", () => new FoodPages(this.food.id))
     const body = document.querySelector('body')
-    body.appendChild(li)
+    ol.appendChild(li)
+    body.append(li)
+    console.log(typeof this.nutrient_hash)
+    }
+
+    renderFoodPage = (food) => {
+        new FoodPages(food)
     }
 }
