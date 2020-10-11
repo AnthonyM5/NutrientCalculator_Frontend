@@ -11,6 +11,6 @@ class NutrientValues{
         const nutrientP = document.createElement("p")
         nutrientP.innerText = `${this.name} : ${this.value}`
         card.append(nutrientP)
-        document.body.append(card)
+        document.body.appendChild(card)
     }
 }

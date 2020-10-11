@@ -17,11 +17,12 @@ class FoodPages {
         const header = document.createElement('h1')
         header.setAttribute('class', 'text-center')
         header.innerText = name
+        body.append(header)
         const nutrientInfo = document.createElement('div')
         nutrient_hash.forEach(nutrient =>  new NutrientValues(nutrient))
-        body.append(header)
         const button = document.createElement('button')
         button.setAttribute('onclick', "window.print()")
+        body.append
         body.append(nutrientInfo)
         
     }
