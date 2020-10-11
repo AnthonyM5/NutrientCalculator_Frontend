@@ -20,7 +20,8 @@ class ApiService {
     }
 
     fetchPortions = (id) => 
-    fetch(this.root+id+'&api_key=vo2af6MVAbCVZa0h4fYKoHdtjeHUxaRFDjEyGyia').then(res => {res.json().then(data => {console.log(data)})})
+    fetch(this.root+id+'&api_key=vo2af6MVAbCVZa0h4fYKoHdtjeHUxaRFDjEyGyia')
+    .then(res => res.json())
     
 }
 

@@ -4,11 +4,13 @@ class Food {
         this.nutrient_hash = food.nutrient_hash
         this.id = food.id
         this.card = this.render()
+        
     }
 
     // addEventListeners(){
     //     this.addEventListeners("onclick", () => new FoodPages(this.food.id))
     // }
+
 
     render(){
     const ol = document.createElement("ol")
