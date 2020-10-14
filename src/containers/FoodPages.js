@@ -24,20 +24,24 @@ class FoodPages {
         const { id, name, nutrient_hash } = this.food
         console.log(this)
         const body = document.body
+        const nutrientInfo = document.createElement('div')
         body.innerHTML = ""
         const header = document.createElement('h1')
-        
         header.setAttribute('class', 'text-center')
         header.innerText = name
         body.append(header)
-        const nutrientInfo = document.createElement('div')
-        const button = document.createElement('button')
-        button.setAttribute('onclick', "window.print()")
         Promise.resolve(this.getPortions()).then(modifier => nutrient_hash.forEach(nutrient => {new NutrientValues(nutrient, modifier)}))  
-        body.append(button)
-        body.append(nutrientInfo)
-        
+        body.append(nutrientInfo)   
+        this.addButtons()
     }
 
-
+    addButtons(){
+        const printButton = document.createElement('button')
+        const addToMeal = document.createElement('button')
+        addToMeal.innerText = "Add To Meal"
+        addToMeal.addEventListener('click', (e) => new Ingredient(this.id))
+        printButton.innerText = "Print This Page"
+        printButton.setAttribute('onclick', "window.print()")
+        document.body.append(printButton, addToMeal)
+    }
 }
