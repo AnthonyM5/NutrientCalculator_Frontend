@@ -7,6 +7,7 @@ class FoodPages {
         this.food = food
         this.name = food.name
         this.id = food.fdcid
+        this.food_id = food.id
         this.science = food.science_name
         this.nutrient_hash = food.nutrient_hash
         this.renderFood()
@@ -16,6 +17,7 @@ class FoodPages {
         const portions = new ApiService('https://api.nal.usda.gov/fdc/v1/foods?fdcIds=')
         return portions.fetchPortions(this.id)
         .then(data => {return data[0].foodPortions[0].gramWeight})
+        .catch((error) => {console.error('Error:', error)})
         
         
     }
@@ -39,7 +41,7 @@ class FoodPages {
         const printButton = document.createElement('button')
         const addToMeal = document.createElement('button')
         addToMeal.innerText = "Add To Meal"
-        addToMeal.addEventListener('click', (e) => new Ingredient(this.id))
+        addToMeal.addEventListener('click', (e) => new Ingredient(this.food_id))
         printButton.innerText = "Print This Page"
         printButton.setAttribute('onclick', "window.print()")
         document.body.append(printButton, addToMeal)
