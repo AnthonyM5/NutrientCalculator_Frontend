@@ -33,8 +33,14 @@ class ApiService {
         meals.forEach(meal => new Meal(meal))
     }
 
-    
-    
+
+    addToMeal = (meal_id, food_id) => 
+    fetch(this.root+"meals/"+meal_id+"/ingredients?meal_id="+meal_id+"&food_id="+food_id,  {
+        method: 'POST',
+        redirect: 'follow'
+      })
+    .then(res => res.json())
+    .then(data => console.log(data))    
     
 
 

@@ -1,11 +1,11 @@
 class Ingredient {
-    constructor(id){
-        this.fdcid = id
-        this.render()
+    constructor(food){
+        this.food_id = food
+        this.addToMeal()
     }
 
-    render(){
-        console.log(this)
+    addToMeal(){
+        api.addToMeal(1, this.food_id)
     }
 
 

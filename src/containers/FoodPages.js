@@ -24,7 +24,7 @@ class FoodPages {
 
     renderFood(){ 
         const { id, name, nutrient_hash } = this.food
-        console.log(this)
+        // console.log(this)
         const body = document.body
         const nutrientInfo = document.createElement('div')
         body.innerHTML = ""
