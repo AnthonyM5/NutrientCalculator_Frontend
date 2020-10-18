@@ -1,6 +1,8 @@
 class Ingredient {
     constructor(food){
         this.food_id = food
+        this.name = food.name
+        this.science_name = food.science
         this.addToMeal()
     }
 

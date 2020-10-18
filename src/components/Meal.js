@@ -10,7 +10,7 @@ class Meal {
     render(){
         const ol = document.createElement("ol")
         const li = document.createElement("li")
-        li.innerText = `${this.name}` 
+        li.innerText = `${this.name}` + " No. of Ingredients: " + `${this.ingredients.length}`
         li.setAttribute('href', '#')
         li.dataset.id = this.id
         li.addEventListener("click", () => new MealPages(this.id))

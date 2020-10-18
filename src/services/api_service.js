@@ -20,6 +20,11 @@ class ApiService {
     .then(res => res.json())
     .then(this.renderMeals)
     // .then(data => console.log(data))
+
+    fetchMeal = (id) => 
+    fetch(this.root+'/meals/'+id)
+    .then(res => res.json())
+    .then(this.renderMeal)
  
 
     fetchPortions = (id) => 
@@ -38,12 +43,13 @@ class ApiService {
 
 
     addToMeal = (meal_id, food_id) => 
-    fetch(this.root+"meals/"+meal_id+"/ingredients?meal_id="+meal_id+"&food_id="+food_id,  {
-        method: 'POST',
-        redirect: 'follow'
-      })
-    .then(res => res.json())
-    .then(data => console.log(data))    
+    console.log(this.root)
+    // fetch(this.root+"meals/"+meal_id+"/ingredients?meal_id="+meal_id+"&food_id="+food_id,  {
+    //     method: 'POST',
+    //     redirect: 'follow'
+    //   })
+    // .then(res => res.json())
+    // .then(data => console.log(data))    
     
 
 

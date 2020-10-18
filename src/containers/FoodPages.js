@@ -41,7 +41,7 @@ class FoodPages {
         const printButton = document.createElement('button')
         const addToMeal = document.createElement('button')
         addToMeal.innerText = "Add To Meal"
-        addToMeal.addEventListener('click', (e) => new Ingredient(this.food_id))
+        addToMeal.addEventListener('click', (e) => new Ingredient(this))
         printButton.innerText = "Print This Page"
         printButton.setAttribute('onclick', "window.print()")
         document.body.append(printButton, addToMeal)
