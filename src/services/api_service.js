@@ -8,6 +8,7 @@ class ApiService {
     fetchFoods = () => 
     fetch(this.root+'/foods')
     .then(res => res.json())
+    // .then(data => console.log(data))
     .then(this.renderFoods)
 
     fetchFood = (id) => 
@@ -18,6 +19,8 @@ class ApiService {
     fetch(this.root+'/meals')
     .then(res => res.json())
     .then(this.renderMeals)
+    // .then(data => console.log(data))
+ 
 
     fetchPortions = (id) => 
     fetch(this.root+id+'&api_key=vo2af6MVAbCVZa0h4fYKoHdtjeHUxaRFDjEyGyia')
