@@ -10,6 +10,7 @@ class MealPages {
         this.ingredients = meal.ingredients
         this.renderMeal()
         this.renderIngredients()
+        
     }
 
     // renderIngredients(ingredients){
@@ -24,6 +25,7 @@ class MealPages {
         body.innerHTML = ""
         // console.log(this.meal)
         this.addButtons()
+        this.searchFoods()
         const header = document.createElement('h1')
         const idHeader = document.createElement('h3')
         idHeader.innerText = this.id
@@ -56,6 +58,13 @@ class MealPages {
             api.fetchMeals()
         })
         document.body.appendChild(backButton)
+    }
+
+    searchFoods(){
+        const searchDiv = document.createElement('div')
+        searchDiv.setAttribute('class', 'topnav')
+        searchDiv.innerHTML =`<input type="text" placeholder="Search..">`
+        document.body.append(searchDiv)
     }
 
     
