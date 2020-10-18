@@ -20,14 +20,17 @@ class MealPages {
         const {meal_id, ingredients, meal_name} = this.meal
         // console.log(this)
         const body = document.body
-        
         // const mealIngredients = document.createElement('li')
         body.innerHTML = ""
         // console.log(this.meal)
+        this.addButtons()
         const header = document.createElement('h1')
+        const idHeader = document.createElement('h3')
+        idHeader.innerText = this.id
+        idHeader.setAttribute('class', 'text-center')
         header.setAttribute('class', 'text-center')
         header.innerText = this.name
-        body.append(header)
+        body.append(header, idHeader)
         // mealInfo.appendChild(mealIngredients)
         
     }
@@ -42,6 +45,17 @@ class MealPages {
             })
         })
         
+    }
+
+    addButtons(){
+        const backButton = document.createElement('button')
+        backButton.innerText = 'Back to Meals'
+        backButton.addEventListener('click', function(e){
+            e.preventDefault()
+            document.querySelectorAll('li').innerText = ""
+            api.fetchMeals()
+        })
+        document.body.appendChild(backButton)
     }
 
     

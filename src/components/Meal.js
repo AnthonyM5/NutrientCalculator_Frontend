@@ -14,9 +14,8 @@ class Meal {
         li.setAttribute('href', '#')
         li.dataset.id = this.id
         li.addEventListener("click", () => new MealPages(this.id))
-        const body = document.querySelector('body')
         ol.appendChild(li)
-        body.append(li)
+        document.body.append(li)
         // console.log(this)
         }
 }
