@@ -7,7 +7,8 @@ class Ingredient {
     }
 
     addToMeal(){
-        api.addToMeal(1, this.food_id)
+        console.log(this)
+        // api.addToMeal(1, this.food_id)
     }
 
 
