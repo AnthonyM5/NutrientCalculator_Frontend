@@ -19,20 +19,18 @@ class MealPages {
 
     renderMeal(){
         const {meal_id, ingredients, meal_name} = this.meal
-        // console.log(this)
-        const body = document.body
-        // const mealIngredients = document.createElement('li')
-        body.innerHTML = ""
+        const mealCard = document.createElement('div')
+        document.body.innerHTML = ""
         // console.log(this.meal)
         this.addButtons()
-        this.searchFoods()
         const header = document.createElement('h1')
         const idHeader = document.createElement('h3')
         idHeader.innerText = this.id
         idHeader.setAttribute('class', 'text-center')
         header.setAttribute('class', 'text-center')
         header.innerText = this.name
-        body.append(header, idHeader)
+        mealCard.append(header, idHeader)
+        document.body.append(mealCard)
         // mealInfo.appendChild(mealIngredients)
         
     }
@@ -41,31 +39,76 @@ class MealPages {
         const ingredientAPI = new ApiService('http://localhost:3000/')
         this.ingredients.forEach(ingredient => {
             ingredientAPI.fetchFood(ingredient.food_id).then(data => {
+                const ingredientDiv = document.createElement('div')
                 const mealInfo = document.createElement('p')
                 mealInfo.innerText = JSON.stringify(data.name)
-                document.body.append(mealInfo)
+                ingredientDiv.append(mealInfo)
+                document.body.append(ingredientDiv)
             })
         })
         
     }
 
     addButtons(){
+        const navBar = document.createElement('nav')
+        navBar.setAttribute('class', 'container-fluid')
+        const searchBar = document.createElement('p')
+        searchBar.innerHTML =`<input type="text" placeholder="Search..">`
+        navBar.append(searchBar)
+        
         const backButton = document.createElement('button')
-        backButton.innerText = 'Back to Meals'
+        const newButton = document.createElement('button')
+        newButton.setAttribute('id', 'newButton')
+        newButton.innerText = "Create New Meal"
+        setAttributes(newButton, {"class": "btn btn-primary", "data-toggle":"modal", })
+        const newModal = document.createElement('div')
+        setAttributes(newModal, {"id": "newModal", "class": "modal-fade", "role":"dialog", "aria-hidden":"true", "aria-labelledby":"innerModal"})
+        const modalSpan = document.createElement('span')
+        modalSpan.setAttribute("class", "close")
+        setAttributes(modalSpan, {"aria-hidden":"true"})
+        modalSpan.innerText = "&times;"
+        const closeButton = document.createElement('button')
+        setAttributes(closeButton, {"type": "button", "class":"close"})
+        closeButton.append(modalSpan)
+        const modalDialog = document.createElement('div')
+        setAttributes(modalDialog, {"class": "modal-dialog", "role":"document"})
+        
+        const modalHeader = document.createElement('div')
+        modalHeader.setAttribute("class", "modal-header")
+        const modalTitle = document.createElement('h5')
+        setAttributes(modalTitle, {"id":"innerModal"})
+        modalTitle.innerHTML = "Modal Title"
+        modalDialog.append(modalHeader, modalTitle)
+        newModal.append(closeButton)
+        newModal.append(modalDialog)
+        newButton.onclick = function() {
+            newModal.style.display = "block";
+        }
+        modalSpan.onclick = function(){
+            newModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == newModal) {
+              newModal.style.display = "none";
+            }
+          }
+        backButton.setAttribute('class', 'btn btn-outline-primary')
+        backButton.innerText = 'Back to Meals '
         backButton.addEventListener('click', function(e){
             e.preventDefault()
-            document.querySelectorAll('li').innerText = ""
+            const clearDivs = document.querySelectorAll('div')
+            clearDivs.forEach(div => div.remove())
             api.fetchMeals()
         })
-        document.body.appendChild(backButton)
+        navBar.append(backButton, newButton, newModal)
+        document.body.appendChild(navBar)
     }
-
-    searchFoods(){
-        const searchDiv = document.createElement('div')
-        searchDiv.setAttribute('class', 'topnav')
-        searchDiv.innerHTML =`<input type="text" placeholder="Search..">`
-        document.body.append(searchDiv)
-    }
-
     
 }
+
+function setAttributes(el, attrs) {
+    for(var key in attrs) {
+      el.setAttribute(key, attrs[key]);
+    }
+  }

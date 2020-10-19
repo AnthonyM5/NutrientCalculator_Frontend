@@ -8,14 +8,15 @@ class Meal {
     }
 
     render(){
-        const ol = document.createElement("ol")
+        const mealCard = document.createElement('div')
+        mealCard.setAttribute('class', 'container')
         const li = document.createElement("li")
         li.innerText = `${this.name}` + " No. of Ingredients: " + `${this.ingredients.length}`
         li.setAttribute('href', '#')
         li.dataset.id = this.id
         li.addEventListener("click", () => new MealPages(this.id))
-        ol.appendChild(li)
-        document.body.append(li)
+        mealCard.append(li)
+        document.body.append(mealCard)
         // console.log(this)
         }
 }
