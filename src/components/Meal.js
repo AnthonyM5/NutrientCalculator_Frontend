@@ -9,7 +9,7 @@ class Meal {
 
     render(){
         const mealCard = document.createElement('div')
-        mealCard.setAttribute('class', 'container')
+        setAttributes(mealCard, {"class":"container", "id":"mealCard"})
         const li = document.createElement("li")
         li.innerText = `${this.name}` + " No. of Ingredients: " + `${this.ingredients.length}`
         li.setAttribute('href', '#')
@@ -19,4 +19,10 @@ class Meal {
         document.body.append(mealCard)
         // console.log(this)
         }
+
+        
 }
+
+
+
+  
