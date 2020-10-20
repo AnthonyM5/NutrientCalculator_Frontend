@@ -4,6 +4,7 @@ class Ingredient {
         this.name = food.name
         this.science_name = food.science
         this.addToMeal()
+        this.meal_id = state.meal
     }
 
     addToMeal(){

@@ -1,6 +1,7 @@
 class MealPages {
     constructor(id){
         api.fetchMeal(id).then(this.buildMealPage.bind(this))
+        state.meal = id
     }
 
     buildMealPage(meal){
@@ -11,6 +12,8 @@ class MealPages {
         this.renderMeal()
         this.renderIngredients()
         this.addButtons()
+        this.renderFoods()
+        console.log(state.meal)
         
         
     }
@@ -61,7 +64,7 @@ class MealPages {
         const backButton = document.createElement('button')
         const newButton = document.createElement('button')
         newButton.setAttribute('id', 'newButton')
-        newButton.innerText = "Create New Meal"
+        newButton.innerText = "Add Ingredients"
         setAttributes(newButton, {"class": "btn btn-primary", "data-toggle":"modal", })
         const newModal = document.createElement('div')
         setAttributes(newModal, {"id": "newModal", "class": "modal-fade", "role":"dialog", "aria-hidden":"true", "aria-labelledby":"innerModal"})
@@ -79,8 +82,8 @@ class MealPages {
         const modalTitle = document.createElement('h5')
         modalHeader.append(modalTitle)
         modalHeader.append(closeButton)
-        setAttributes(modalTitle, {"id":"innerModal"})
-        modalTitle.innerText = this.renderFoods()
+        setAttributes(modalTitle, {"id":"innerModal", "class":"text-center"})
+        modalTitle.innerText = "Search Foods"
         modalDialog.append(modalHeader)
         newModal.append(modalDialog)
         newButton.onclick = function() {
