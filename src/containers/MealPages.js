@@ -11,7 +11,7 @@ class MealPages {
         this.renderMeal()
         this.renderIngredients()
         this.addButtons()
-        this.renderFoods()
+        
         
     }
 
@@ -80,7 +80,7 @@ class MealPages {
         modalHeader.append(modalTitle)
         modalHeader.append(closeButton)
         setAttributes(modalTitle, {"id":"innerModal"})
-        modalTitle.innerHTML = "Modal Title"
+        modalTitle.innerText = this.renderFoods()
         modalDialog.append(modalHeader)
         newModal.append(modalDialog)
         newButton.onclick = function() {
