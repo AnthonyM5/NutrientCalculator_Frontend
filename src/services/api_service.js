@@ -43,13 +43,12 @@ class ApiService {
 
 
     addToMeal = (meal_id, food_id) => 
-    console.log(this.root)
-    // fetch(this.root+"meals/"+meal_id+"/ingredients?meal_id="+meal_id+"&food_id="+food_id,  {
-    //     method: 'POST',
-    //     redirect: 'follow'
-    //   })
-    // .then(res => res.json())
-    // .then(data => console.log(data))    
+    fetch(this.root+"meals/"+meal_id+"/ingredients?meal_id="+meal_id+"&food_id="+food_id,  {
+        method: 'POST',
+        redirect: 'follow'
+      })
+    .then(res => res.json())
+    .then(data => console.log(data))    
 
     
 

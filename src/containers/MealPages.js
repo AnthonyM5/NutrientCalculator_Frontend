@@ -13,7 +13,7 @@ class MealPages {
         this.renderIngredients()
         this.addButtons()
         this.renderFoods()
-        console.log(state.meal)
+        // console.log(state.meal)
         
         
     }
