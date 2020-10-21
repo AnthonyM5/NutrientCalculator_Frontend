@@ -108,7 +108,7 @@ class MealPages {
             api.fetchMeals()
         })
         navBar.append(backButton, newButton, newModal)
-        console.log(navBar)
+        // console.log(navBar)
         const body = document.body
         body.append(navBar)
     }
