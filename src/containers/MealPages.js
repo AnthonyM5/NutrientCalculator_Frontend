@@ -47,6 +47,11 @@ class MealPages {
                 const ingredientDiv = document.createElement('div')
                 const mealInfo = document.createElement('p')
                 mealInfo.innerText = JSON.stringify(data.name)
+                mealInfo.addEventListener('click', function(e){
+                    e.preventDefault()
+                    api.deleteFromMeal(state.meal, data.id)
+                    api.fetchMeal(state.meal)
+                })
                 ingredientDiv.append(mealInfo)
                 document.body.append(ingredientDiv)
             })

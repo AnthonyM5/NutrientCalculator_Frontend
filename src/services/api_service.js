@@ -31,7 +31,9 @@ class ApiService {
     fetch(this.root+id+'&api_key=vo2af6MVAbCVZa0h4fYKoHdtjeHUxaRFDjEyGyia')
     .then(res => res.json())
 
-     
+    renderMeal(id){
+        new MealPages(id)
+    }
 
     renderFoods(foods){
         foods.forEach(food => new Food(food))
@@ -49,6 +51,16 @@ class ApiService {
       })
     .then(res => res.json())
     .then(data => console.log(data))    
+
+
+    deleteFromMeal = (meal_id, ingredient_id) =>
+   fetch(this.root+"meals/"+meal_id+"/ingredients/"+ingredient_id,{
+    method: 'DELETE',
+    redirect: 'follow'
+  })
+//   .then(res => res.json())
+  .then(data => console.log(data))  
+
 
     
 
