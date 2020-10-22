@@ -119,17 +119,18 @@ class ApiService {
               newModal.style.display = "none";
             }
           }
-        setAttributes(submitButton, {'class':'btn btn-outline-primary',"onclick":"formFunction()","value":"Submit"})
+        setAttributes(submitButton, {'class':'btn btn-outline-primary',"value":"Submit", "onsubmit":"return false"})
         submitButton.innerText = 'Submit'
  
-        // form.addEventListener('submit', function(e){
-        //     e.preventDefault()
-        //     console.log(document.getElementById("form").submit());
-        //     // document.getElementById("mealCard").innerHTML = ""
-        //     // const clearDivs = document.querySelectorAll('div')
-        //     // clearDivs.forEach(div => div.remove())
-        //     // api.fetchMeals()
-        // })
+        submitButton.addEventListener('onclick', function(e){
+            e.preventDefault()
+            console.log(e)
+            console.log(document.getElementById("form").submit());
+            // document.getElementById("mealCard").innerHTML = ""
+            // const clearDivs = document.querySelectorAll('div')
+            // clearDivs.forEach(div => div.remove())
+            // api.fetchMeals()
+        })
 
        
 
