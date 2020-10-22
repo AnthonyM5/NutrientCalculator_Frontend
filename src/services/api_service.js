@@ -31,9 +31,19 @@ class ApiService {
     fetch(this.root+id+'&api_key=vo2af6MVAbCVZa0h4fYKoHdtjeHUxaRFDjEyGyia')
     .then(res => res.json())
 
-    renderMeal(id){
-        new MealPages(id)
-    }
+    // renderMeal(id){
+    //     new MealPages(id)
+    // }
+
+    createMeal = (name) =>
+    fetch(this.root+"meals?name="+name, {
+      method: 'POST',
+      headers: myHeaders,
+      redirect: 'follow'
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  
 
     renderFoods(foods){
         foods.forEach(food => new Food(food))
@@ -43,7 +53,7 @@ class ApiService {
         meals.forEach(meal => new Meal(meal))
     }
 
-
+    
     addToMeal = (meal_id, food_id) => 
     fetch(this.root+"meals/"+meal_id+"/ingredients?meal_id="+meal_id+"&food_id="+food_id,  {
         method: 'POST',
@@ -54,11 +64,11 @@ class ApiService {
 
 
     deleteFromMeal = (meal_id, ingredient_id) =>
-   fetch(this.root+"meals/"+meal_id+"/ingredients/"+ingredient_id,{
-    method: 'DELETE',
-    redirect: 'follow'
-  })
-//   .then(res => res.json())
+    fetch(this.root+"meals/"+meal_id+"/ingredients/"+ingredient_id,{
+        method: 'DELETE',
+        redirect: 'follow'
+    })
+  // .then(res => res.json())
   .then(data => console.log(data))  
 
 
