@@ -122,14 +122,16 @@ class ApiService {
         setAttributes(submitButton, {'class':'btn btn-outline-primary',"value":"Submit", "onsubmit":"return false"})
         submitButton.innerText = 'Submit'
  
-        submitButton.addEventListener('onclick', function(e){
-            e.preventDefault()
-            console.log(e)
-            console.log(document.getElementById("form").submit());
-            // document.getElementById("mealCard").innerHTML = ""
-            // const clearDivs = document.querySelectorAll('div')
-            // clearDivs.forEach(div => div.remove())
-            // api.fetchMeals()
+        submitButton.addEventListener('click', function(e){
+            // e.preventDefault()
+            // console.log(e)
+            const formData = document.querySelector("#form > input[type=text]").value
+            api.createMeal(formData)
+
+            document.getElementById("mealCard").innerHTML = ""
+            const clearDivs = document.querySelectorAll('div')
+            clearDivs.forEach(div => div.remove())
+            api.fetchMeals()
         })
 
        
