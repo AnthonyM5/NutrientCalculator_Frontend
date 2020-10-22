@@ -47,6 +47,10 @@ class MealPages {
                 const ingredientDiv = document.createElement('div')
                 const mealInfo = document.createElement('p')
                 mealInfo.innerText = JSON.stringify(data.name)
+                const deleteButton = document.createElement('button')
+                setAttributes(deleteButton, {"id":"deleteButton", "class": "btn btn-primary"})
+                deleteButton.innerText= " Delete"
+                mealInfo.appendChild(deleteButton)
                 mealInfo.addEventListener('click', function(e){
                     e.preventDefault()
                     // console.log(ingredient)
