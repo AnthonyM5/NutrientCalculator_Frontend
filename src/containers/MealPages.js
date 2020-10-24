@@ -11,7 +11,7 @@ class MealPages {
         this.ingredients = meal.ingredients
         this.renderMeal()
         this.renderIngredients()
-        this.renderAllNutrients()
+        this.setState()
         this.addButtons()
         this.renderFoods()
         // console.log(state.meal)
@@ -22,6 +22,13 @@ class MealPages {
     // renderIngredients(ingredients){
     //     ingredients.forEach(ingredient => console.log(ingredient.food_id))
     // }
+
+    setState(){
+        this.meal.ingredients.forEach(ingredient => {
+            Promise.resolve(api.fetchFood(ingredient.food_id).then(data => state.food_objs.push(data)))
+        })
+        
+    }
 
     renderMeal(){
         const {meal_id, ingredients, meal_name} = this.meal
@@ -66,9 +73,7 @@ class MealPages {
     }
 
     renderAllNutrients(){
-        state.food_objs.forEach(food => {
-            console.log(state.food_objs)
-        })
+        console.log(state.food_objs)
     }
 
     addButtons(){
