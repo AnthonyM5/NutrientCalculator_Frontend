@@ -11,6 +11,7 @@ class MealPages {
         this.ingredients = meal.ingredients
         this.renderMeal()
         this.renderIngredients()
+        this.renderAllNutrients()
         this.addButtons()
         this.renderFoods()
         // console.log(state.meal)
@@ -62,6 +63,12 @@ class MealPages {
             })
         })
         
+    }
+
+    renderAllNutrients(){
+        state.food_objs.forEach(food => {
+            console.log(state.food_objs)
+        })
     }
 
     addButtons(){
