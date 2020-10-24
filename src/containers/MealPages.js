@@ -54,8 +54,8 @@ class MealPages {
                 mealInfo.addEventListener('click', function(e){
                     e.preventDefault()
                     // console.log(ingredient)
-                    api.deleteFromMeal(state.meal, ingredient.id)
-                    new MealPages(state.meal)
+                    api.deleteFromMeal(state.meal, ingredient.id).then(new MealPages(state.meal))
+                    
                 })
                 ingredientDiv.append(mealInfo)
                 document.body.append(ingredientDiv)

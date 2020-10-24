@@ -56,6 +56,7 @@ class FoodPages {
         const addToMeal = document.createElement('button')
         addToMeal.innerText = "Add To Meal"
         addToMeal.addEventListener('click', (e) => new Ingredient(this))
+        state.food_objs[`${this.food_id}`] = this
         printButton.innerText = "Print This Page"
         printButton.setAttribute('onclick', "window.print()")
         navBar.append(searchBar)
@@ -107,7 +108,7 @@ class FoodPages {
             // document.body.append(title)
         })
         navBar.append(backButton, addToMeal, newModal)
-        console.log(navBar)
+        // console.log(navBar)
         const body = document.body
         body.append(navBar)
     }

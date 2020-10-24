@@ -11,6 +11,7 @@ class Ingredient {
     addToMeal(){
         // console.log(this.food_id)
         api.addToMeal(this.meal_id, this.food_id)
+        // console.log(this)
         new MealPages(this.meal_id)
     }
 

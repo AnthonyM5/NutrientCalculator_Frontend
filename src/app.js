@@ -8,7 +8,8 @@ myHeaders.append("Content-Type", "application/json");
 title.setAttribute("class", "text-center")
 title.innerText = "Nutrient Calculator"
 const state = {
-    meal: null
+    meal: null,
+    food_objs: []
 }
 
 api.mainNav()

@@ -60,7 +60,8 @@ class ApiService {
         redirect: 'follow'
       })
     .then(res => res.json())
-    .then(data => console.log(data))    
+    // .then(data => console.log(data))
+       
 
 
     deleteFromMeal = (meal_id, ingredient_id) =>
