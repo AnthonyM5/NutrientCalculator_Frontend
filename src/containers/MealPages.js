@@ -12,8 +12,10 @@ class MealPages {
         this.renderMeal()
         this.renderIngredients()
         this.setState()
+        this.renderAllNutrients()
         this.addButtons()
         this.renderFoods()
+        
         // console.log(state.meal)
         
         
@@ -73,7 +75,13 @@ class MealPages {
     }
 
     renderAllNutrients(){
-        console.log(state.food_objs)
+        Promise.resolve(this.setState())
+        state.food_objs.forEach(food => {
+            food.nutrient_hash.forEach(nutrient => {
+                console.log(nutrient)
+            })
+        })
+        
     }
 
     addButtons(){
