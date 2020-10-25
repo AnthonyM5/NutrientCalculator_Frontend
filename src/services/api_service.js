@@ -60,6 +60,7 @@ class ApiService {
         redirect: 'follow'
       })
     .then(res => res.json())
+    .then(sleeper(10000))  
     // .then(data => console.log(data))
        
 
@@ -160,4 +161,11 @@ function setAttributes(el, attrs) {
     for(var key in attrs) {
       el.setAttribute(key, attrs[key]);
     }
+  }
+
+
+  function sleeper(ms) {
+    return function(x) {
+      return new Promise(resolve => setTimeout(() => resolve(x), ms));
+    };
   }

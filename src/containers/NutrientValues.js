@@ -7,6 +7,7 @@ class NutrientValues{
         this.renderNutrient()
     }
 
+
     renderNutrient(){
         
         const card = document.createElement("div")

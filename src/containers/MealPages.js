@@ -1,6 +1,8 @@
 class MealPages {
     constructor(id){
-        api.fetchMeal(id).then(this.buildMealPage.bind(this))
+        api.fetchMeal(id)
+        // .then(sleeper(1000))
+        .then(this.buildMealPage.bind(this))
         state.meal = id
     }
 
@@ -12,7 +14,7 @@ class MealPages {
         this.renderMeal()
         this.renderIngredients()
         this.setState()
-        // this.renderAllNutrients()
+        this.renderAllNutrients()
         this.addButtons()
         this.renderFoods()
         
@@ -35,6 +37,7 @@ class MealPages {
     renderMeal(){
         const {meal_id, ingredients, meal_name} = this.meal
         const mealCard = document.createElement('div')
+        mealCard.setAttribute('class', 'container')
         document.body.innerHTML = ""
         // console.log(this.meal)
         // this.addButtons()
@@ -64,7 +67,9 @@ class MealPages {
                 mealInfo.addEventListener('click', function(e){
                     e.preventDefault()
                     // console.log(ingredient)
-                    api.deleteFromMeal(state.meal, ingredient.id).then(new MealPages(state.meal))
+                    api.deleteFromMeal(state.meal, ingredient.id)
+                    .then(sleeper(1000))
+                    .then(new MealPages(state.meal))
                     
                 })
                 ingredientDiv.append(mealInfo)
@@ -76,11 +81,13 @@ class MealPages {
 
     renderAllNutrients(){
         Promise.resolve(this.setState())
-        state.food_objs.forEach(food => {
+        .then(state.food_objs.forEach(food => {
             food.nutrient_hash.forEach(nutrient => {
                 console.log(nutrient)
+                // new MealNutrients(nutrient, state.meal)
             })
-        })
+        }))
+        
         
     }
 
@@ -157,8 +164,8 @@ function setAttributes(el, attrs) {
     }
   }
 
-// function sleeper(ms) {
-//     return function(x) {
-//       return new Promise(resolve => setTimeout(() => resolve(x), ms));
-//     };
-//   }
+function sleeper(ms) {
+    return function(x) {
+      return new Promise(resolve => setTimeout(() => resolve(x), ms));
+    };
+  }

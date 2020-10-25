@@ -10,6 +10,7 @@ title.innerText = "Nutrient Calculator"
 const state = {
     meal: null,
     food_objs: [],
+    nutrient_hashes: {},
     isLoading: true
 }
 
