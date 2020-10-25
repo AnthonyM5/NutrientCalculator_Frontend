@@ -9,11 +9,20 @@ class Ingredient {
     }
 
     addToMeal(){
-        // console.log(this.food_id)
         api.addToMeal(this.meal_id, this.food_id)
-        // console.log(this)
-        new MealPages(this.meal_id)
+        .then(sleeper(1000))
+        .then(data => console.log(data))
+        .then(new MealPages(this.meal_id))
     }
 
 
+
 }
+
+
+  function sleeper(ms) {
+        return function(x) {
+          return new Promise(resolve => setTimeout(() => resolve(x), ms));
+        };
+      }
+    

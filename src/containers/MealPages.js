@@ -12,7 +12,7 @@ class MealPages {
         this.renderMeal()
         this.renderIngredients()
         this.setState()
-        this.renderAllNutrients()
+        // this.renderAllNutrients()
         this.addButtons()
         this.renderFoods()
         
@@ -51,9 +51,9 @@ class MealPages {
     }
 
     renderIngredients(){
-        const ingredientAPI = new ApiService('http://localhost:3000/')
+        // const ingredientAPI = new ApiService('http://localhost:3000/')
         this.ingredients.forEach(ingredient => {
-            ingredientAPI.fetchFood(ingredient.food_id).then(data => {
+            api.fetchFood(ingredient.food_id).then(data => {
                 const ingredientDiv = document.createElement('div')
                 const mealInfo = document.createElement('p')
                 mealInfo.innerText = JSON.stringify(data.name)
@@ -156,3 +156,9 @@ function setAttributes(el, attrs) {
       el.setAttribute(key, attrs[key]);
     }
   }
+
+// function sleeper(ms) {
+//     return function(x) {
+//       return new Promise(resolve => setTimeout(() => resolve(x), ms));
+//     };
+//   }

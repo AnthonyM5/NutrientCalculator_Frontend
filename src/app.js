@@ -9,7 +9,8 @@ title.setAttribute("class", "text-center")
 title.innerText = "Nutrient Calculator"
 const state = {
     meal: null,
-    food_objs: []
+    food_objs: [],
+    isLoading: true
 }
 
 api.mainNav()
