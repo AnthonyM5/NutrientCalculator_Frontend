@@ -32,7 +32,7 @@ class FoodPages {
         header.setAttribute('class', 'text-center')
         header.innerText = name
         body.append(header)
-        Promise.resolve(this.getPortions()).then(modifier => nutrient_hash.forEach(nutrient => {new NutrientValues(nutrient, modifier)}))  
+        Promise.resolve(this.getPortions()).then(modifier => nutrient_hash.forEach(nutrient => {new NutrientValues(nutrient, modifier, this.food_id)}))  
         body.append(nutrientInfo)   
         this.addButtons()
     }

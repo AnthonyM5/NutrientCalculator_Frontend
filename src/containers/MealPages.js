@@ -14,7 +14,6 @@ class MealPages {
         this.renderMeal()
         this.renderIngredients()
         this.setState()
-        this.renderAllNutrients()
         this.addButtons()
         this.renderFoods()
         
@@ -30,8 +29,9 @@ class MealPages {
     setState(){
         this.meal.ingredients.forEach(ingredient => {
             Promise.resolve(api.fetchFood(ingredient.food_id).then(data => state.food_objs.push(data)))
+            
         })
-        
+        this.renderAllNutrients()
     }
 
     renderMeal(){
@@ -80,13 +80,11 @@ class MealPages {
     }
 
     renderAllNutrients(){
-        Promise.resolve(this.setState())
-        .then(state.food_objs.forEach(food => {
+        state.food_objs.forEach(food => {
             food.nutrient_hash.forEach(nutrient => {
-                console.log(nutrient)
-                // new MealNutrients(nutrient, state.meal)
+                new MealNutrients(nutrient, state.meal, food.id)
             })
-        }))
+        })
         
         
     }

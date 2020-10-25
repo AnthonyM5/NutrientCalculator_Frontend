@@ -1,15 +1,16 @@
 class NutrientValues{
-    constructor(nutrient, modifier){
+    constructor(nutrient, modifier, food_id){
         this.name = nutrient.nutrientName
         this.value = nutrient.value
         this.modifier = modifier
+        this.food_id = food_id
         this.unit = nutrient.unitName
         this.renderNutrient()
     }
 
 
     renderNutrient(){
-        
+        // console.log(this)
         const card = document.createElement("div")
         const nutrientP = document.createElement("p")
         const newValue = this.value * (this.modifier / 100)
