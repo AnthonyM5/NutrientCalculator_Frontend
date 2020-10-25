@@ -6,9 +6,11 @@ class MealNutrients{
         // this.modifier = modifier
         this.unit = nutrient.unitName
         this.addingAllValues()
+        this.renderNutrients()
        
     }
 
+    
     addingAllValues(){
         // return state.nutrient_hashes[`${this.name}`] += this.value 
         if (state.nutrient_hashes[`${this.name}`] === undefined) {
@@ -16,39 +18,44 @@ class MealNutrients{
         } else {
             state.nutrient_hashes[`${this.name}`] += this.value
         }
-        this.renderNutrients()
     }
+
 
     
 
     renderNutrients(){
         // console.log(this)
-        
+        const allRow = document.createElement('div')
+        allRow.setAttribute("class", "row")
+        // const nutrientV = document.createElement("div")
+        // nutrientV.setAttribute("class", "col-sm")
+        const nutrientP = document.createElement("div")
+        nutrientP.setAttribute("class", "col-sm")
        
         // const details = document.createElement('h3')
-        const allValues = []
+        // const allValues = []
         for (const name in state.nutrient_hashes) {
-            nutrientP.innerText = name
+            nutrientP.innerText = name + " " + state.nutrient_hashes[`${name}`] 
             nutrientP.setAttribute("id", name)
-            this.renderNutrientValues(state.nutrient_hashes[`${name}`])
+            
+            
+            // this.renderNutrientValues(name)
         }
-        
+            // document.body.append(allRow)
+           
         // 
+        //
+        console.log(nutrientP)
         allRow.append(nutrientP)
-        // document.body.append(allRow)
-        console.log(nutrientV)
-        
+        document.body.append(allRow)
     }
 
-    renderNutrientValues(value){
-        const oldVal = parseFloat(nutrientV.innerText)
-        if (nutrientV === NaN){
-            nutrientV.innerText = value
-        } else {
-            nutrientV.innerText = parseFloat(oldVal + value)
-        }
-        allRow.appendChild(nutrientP)
-    }
+    
+    // renderNutrientValues(){
+    //     nutrientV.innerText = state.nutrient_hashes[`${name}`] 
+    //     console.log(nutrientV)
+    //     // allRow.appendChild(nutrientP)
+    // }
    
     
 
@@ -56,3 +63,4 @@ class MealNutrients{
 
     
 }
+

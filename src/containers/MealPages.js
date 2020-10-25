@@ -16,6 +16,7 @@ class MealPages {
         this.setState()
         this.addButtons()
         this.renderFoods()
+        // this.addingAllValues()
         
         // console.log(state.meal)
         
@@ -88,6 +89,17 @@ class MealPages {
         
         
     }
+
+    
+    // addingAllValues(){
+    //     // return state.nutrient_hashes[`${this.name}`] += this.value 
+    //     if (state.nutrient_hashes[`${this.name}`] === undefined) {
+    //         state.nutrient_hashes[`${this.name}`] = this.value
+    //     } else {
+    //         state.nutrient_hashes[`${this.name}`] += this.value
+    //     }
+    //     // this.renderNutrients()
+    // }
 
     addButtons(){
         const navBar = document.createElement('nav')
