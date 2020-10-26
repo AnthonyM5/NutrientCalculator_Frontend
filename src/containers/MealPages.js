@@ -84,6 +84,7 @@ class MealPages {
         state.food_objs.forEach(food => {
             food.nutrient_hash.forEach(nutrient => {
                 new MealNutrients(nutrient, state.meal, food.id)
+                
             })
         })
         
@@ -152,12 +153,15 @@ class MealPages {
             // document.getElementById("mealCard").innerHTML = ""
             const clearDivs = document.querySelectorAll('div')
             clearDivs.forEach(div => div.remove())
+            header.innerHTML = ""
             api.fetchMeals()
+            api.mainNav()
         })
         navBar.append(backButton, newButton, newModal)
         // console.log(navBar)
         const body = document.body
-        body.append(navBar)
+        header.append(navBar)
+        body.append(header)
     }
 
     renderFoods(){

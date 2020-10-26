@@ -67,7 +67,7 @@ class ApiService {
       // const allValues = []
       for (const name in nutrient_obj) {
           if (document.getElementById(`${name}`) === null) {
-            nutrientP.innerText = name + " " + nutrient_obj[`${name}`]
+            nutrientP.innerText = "    " + name + " " + nutrient_obj[`${name}`]
             nutrientP.setAttribute("id", name)
           } else {
             document.getElementById(`${name}`).innerText = name + " " + state.nutrient_hashes[`${name}`] 
@@ -83,7 +83,7 @@ class ApiService {
       allRow.append(nutrientP)
       console.log(nutrientP)
       
-      document.body.append(allRow)
+      document.body.appendChild(allRow)
   }
 
     
@@ -175,7 +175,10 @@ class ApiService {
         navBar.append(newMeal, newModal)
         // console.log(navBar)
         const body = document.body
-        body.append(navBar)
+        
+        header.setAttribute("class", "header")
+        header.append(navBar)
+        body.append(header)
     }
     
 

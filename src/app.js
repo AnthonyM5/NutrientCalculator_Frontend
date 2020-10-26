@@ -1,6 +1,7 @@
 const api = new ApiService('http://localhost:3000/')
 const title = document.createElement('div')
 const myHeaders = new Headers();
+const header = document.createElement('div')
 
 
 myHeaders.append("Accept", "application/json");
@@ -18,4 +19,5 @@ const state = {
 
 api.mainNav()
 api.fetchMeals()
+
 
