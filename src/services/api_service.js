@@ -69,7 +69,9 @@ class ApiService {
           if (document.getElementById(`${name}`) === null) {
             nutrientP.innerText = name + " " + nutrient_obj[`${name}`]
             nutrientP.setAttribute("id", name)
-          } 
+          } else {
+            document.getElementById(`${name}`).innerText = name + " " + state.nutrient_hashes[`${name}`] 
+          }
           
           //  
           
