@@ -61,6 +61,8 @@ class ApiService {
       // const nutrientV = document.createElement("div")
       // nutrientV.setAttribute("class", "col-sm")
       const nutrientP = document.createElement("div")
+      const allDivs = document.querySelector('div')
+      const lastDivs = allDivs[allDivs.length - 1]
       nutrientP.setAttribute("class", "col-sm")
      
       // const details = document.createElement('h3')
@@ -80,9 +82,8 @@ class ApiService {
           // document.body.append(allRow)
       // 
       //
+      // lastDivs.after(nutrientP)
       allRow.append(nutrientP)
-      console.log(nutrientP)
-      
       document.body.appendChild(allRow)
   }
 
@@ -115,7 +116,7 @@ class ApiService {
         newMeal.innerText = "Create New Meal"
         setAttributes(newMeal, {"class": "btn btn-primary", "data-toggle":"modal", })
         const newModal = document.createElement('div')
-        setAttributes(newModal, {"id": "newModal", "class": "modal-fade", "role":"dialog", "aria-hidden":"true", "aria-labelledby":"innerModal"})
+        setAttributes(newModal, {"id": "newModal", "class": "modal-fade", "role":"dialog", "aria-hidden":"true", "aria-labelledby":"innerModal", "style":"display:"})
         const modalSpan = document.createElement('span')
         modalSpan.setAttribute("class", "close")
         setAttributes(modalSpan, {"aria-hidden":"true"})
