@@ -54,6 +54,37 @@ class ApiService {
     }
 
     
+    renderNutrients(nutrient_obj){
+      // console.log(this)
+      const allRow = document.createElement('div')
+      allRow.setAttribute("class", "row")
+      // const nutrientV = document.createElement("div")
+      // nutrientV.setAttribute("class", "col-sm")
+      const nutrientP = document.createElement("div")
+      nutrientP.setAttribute("class", "col-sm")
+     
+      // const details = document.createElement('h3')
+      // const allValues = []
+      for (const name in nutrient_obj) {
+          if (document.getElementById(`${name}`) === null) {
+            nutrientP.innerText = name + " " + nutrient_obj[`${name}`]
+            nutrientP.setAttribute("id", name)
+          } 
+          
+          //  
+          
+          // this.renderNutrientValues(name)
+      }
+          // document.body.append(allRow)
+      // 
+      //
+      allRow.append(nutrientP)
+      console.log(nutrientP)
+      
+      document.body.append(allRow)
+  }
+
+    
     addToMeal = (meal_id, food_id) => 
     fetch(this.root+"meals/"+meal_id+"/ingredients?meal_id="+meal_id+"&food_id="+food_id,  {
         method: 'POST',

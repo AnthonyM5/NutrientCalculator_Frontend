@@ -12,7 +12,7 @@ class Ingredient {
         api.addToMeal(this.meal_id, this.food_id)
         .then(sleeper(1000))
         .then(new MealPages(this.meal_id))
-        .then(data => console.log(data))
+        // .then(data => console.log(data))
         
     }
 
