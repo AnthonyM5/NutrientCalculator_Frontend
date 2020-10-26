@@ -115,7 +115,7 @@ class MealPages {
         newButton.innerText = "Add Ingredients"
         setAttributes(newButton, {"class": "btn btn-primary", "data-toggle":"modal", })
         const newModal = document.createElement('div')
-        setAttributes(newModal, {"id": "newModal", "class": "modal-fade", "role":"dialog", "aria-hidden":"true", "aria-labelledby":"innerModal"})
+        setAttributes(newModal, {"id": "newModal", "class": "modal-fade", "role":"dialog", "aria-hidden":"true", "aria-labelledby":"innerModal", "style":"display:none"})
         const modalSpan = document.createElement('span')
         modalSpan.setAttribute("class", "close")
         setAttributes(modalSpan, {"aria-hidden":"true"})
@@ -160,6 +160,7 @@ class MealPages {
         navBar.append(backButton, newButton, newModal)
         // console.log(navBar)
         const body = document.body
+        header.innerHTML = ""
         header.append(navBar)
         body.append(header)
     }
