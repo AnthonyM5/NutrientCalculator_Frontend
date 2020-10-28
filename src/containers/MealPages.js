@@ -155,6 +155,7 @@ class MealPages {
             clearDivs.forEach(div => div.remove())
             header.innerHTML = ""
             api.fetchMeals()
+            state.nutrient_hashes = {}
             api.mainNav()
         })
         navBar.append(backButton, newButton, newModal)
