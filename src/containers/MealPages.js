@@ -105,9 +105,9 @@ class MealPages {
     addButtons(){
         const navBar = document.createElement('nav')
         navBar.setAttribute('class', 'container-fluid')
-        const searchBar = document.createElement('p')
-        searchBar.innerHTML =`<input type="text" placeholder="Search..">`
-        navBar.append(searchBar)
+        // const searchBar = document.createElement('p')
+        // searchBar.innerHTML =`<input type="text" placeholder="Search..">`
+        // navBar.append(searchBar)
         
         const backButton = document.createElement('button')
         const newButton = document.createElement('button')
@@ -156,6 +156,7 @@ class MealPages {
             header.innerHTML = ""
             api.fetchMeals()
             state.nutrient_hashes = {}
+            // state.food_objs = []
             api.mainNav()
         })
         navBar.append(backButton, newButton, newModal)
