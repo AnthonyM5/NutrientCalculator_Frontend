@@ -151,10 +151,10 @@ class MealPages {
         backButton.addEventListener('click', function(e){
             e.preventDefault()
             // document.getElementById("mealCard").innerHTML = ""
-            const clearDivs = document.querySelectorAll('div')
-            clearDivs.forEach(div => div.remove())
-            header.innerHTML = ""
-            api.fetchMeals()
+            // const clearDivs = document.querySelectorAll('div')
+            // clearDivs.forEach(div => div.remove())
+            // header.innerHTML = ""
+            // api.fetchMeals()
             state.nutrient_hashes = {}
             // state.food_objs = []
             api.mainNav()

@@ -7,6 +7,10 @@ class Meal {
         this.render()
     }
 
+    hasIngredients(){
+        return (this.ingredients ? this.ingredients.length : [] )
+    }
+
     render(){
         const mealCard = document.createElement('div')
         setAttributes(mealCard, {"class":"container", "id":"mealCard"})
@@ -17,7 +21,7 @@ class Meal {
         mealCol.innerText = `${this.name}`
         const foodCol = document.createElement("div")
         setAttributes(foodCol, {"class":"col-sm"})
-        foodCol.innerText = "No. of Ingredients:" + " " + `${this.ingredients.length}`
+        foodCol.innerText = "No. of Ingredients:" + " " + `${this.hasIngredients()}`
         // mealCol.setAttribute('href', '#')
         mealCol.dataset.id = this.id
         mealCol.addEventListener("click", () => new MealPages(this.id))

@@ -1,3 +1,5 @@
+// Handles our nutrient hashes that are passing in from the food objects
+
 class NutrientValues{
     constructor(nutrient, modifier, food_id){
         this.name = nutrient.nutrientName

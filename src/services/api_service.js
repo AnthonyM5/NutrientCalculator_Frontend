@@ -47,6 +47,7 @@ class ApiService {
       redirect: 'follow'
     })
     .then(res => res.json())
+    .then(data => new Meal(data))
     .then(data => console.log(data))
   
 
@@ -66,15 +67,15 @@ class ApiService {
       // const nutrientV = document.createElement("div")
       // nutrientV.setAttribute("class", "col-sm")
       const nutrientP = document.createElement("div")
-      const allDivs = document.querySelector('div')
-      const lastDivs = allDivs[allDivs.length - 1]
+      // const allDivs = document.querySelector('div')
+      // const lastDivs = allDivs[allDivs.length - 1]
       nutrientP.setAttribute("class", "col-sm")
      
       // const details = document.createElement('h3')
       // const allValues = []
       for (const name in nutrient_obj) {
           if (document.getElementById(`${name}`) === null) {
-            nutrientP.innerText = "    " + name + " " + nutrient_obj[`${name}`]
+            nutrientP.innerText = name + " " + nutrient_obj[`${name}`]
             nutrientP.setAttribute("id", name)
           } else {
             document.getElementById(`${name}`).innerText = name + " " + state.nutrient_hashes[`${name}`] 
@@ -170,10 +171,10 @@ class ApiService {
             const formData = document.querySelector("#form > input[type=text]").value
             api.createMeal(formData)
 
-            document.getElementById("mealCard").innerHTML = ""
-            const clearDivs = document.querySelectorAll('div')
-            clearDivs.forEach(div => div.remove())
-            api.fetchMeals()
+            // document.getElementById("mealCard").innerHTML = ""
+            // const clearDivs = document.querySelectorAll('div')
+            // clearDivs.forEach(div => div.remove())
+            // api.fetchMeals()
         })
 
        
