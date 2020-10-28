@@ -101,7 +101,7 @@ class ApiService {
       })
     .then(res => res.json())
     .then(sleeper(10000))  
-    // .then(data => console.log(data))
+    .then(new MealPages(meal_id))
        
 
 

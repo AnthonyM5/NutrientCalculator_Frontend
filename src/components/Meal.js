@@ -8,7 +8,7 @@ class Meal {
     }
 
     hasIngredients(){
-        return (this.ingredients ? this.ingredients.length : [] )
+        return (this.ingredients ? this.ingredients.length : "0" )
     }
 
     render(){
