@@ -1,6 +1,11 @@
 class ApiService {
 
-    
+    //Contains all fetch requests to server for data: 
+    //1. Fetching all Foods (in the meal pages) => that can be added as an ingredient to meal
+    //2. Fetching all meals created in the database => that can have ingredients added or deleted
+    //3. Fetching individual food/meal items
+    //4. POST => Creating New Meals, Creating New Ingredients
+    //5. Delete => Deleting Ingredients from a Meal
     constructor(root) {
         this.root = root
     }
@@ -108,6 +113,7 @@ class ApiService {
   // .then(data => console.log(data))  
 
     mainNav(){
+      // Loads modal window above the page to navigate through app
       const navBar = document.createElement('nav')
         navBar.setAttribute('class', 'container-fluid')
       const submitButton = document.createElement('button')
@@ -190,10 +196,13 @@ class ApiService {
 
 }
 
-function formFunction(){
-  console.log(document.getElementById("form").submit())
-}
+// function formFunction(){
+//   console.log(document.getElementById("form").submit())
+// }
 
+
+
+//Helper function to assign multiple attributes to an element at once
 function setAttributes(el, attrs) {
     for(var key in attrs) {
       el.setAttribute(key, attrs[key]);
